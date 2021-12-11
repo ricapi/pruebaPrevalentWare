@@ -15,7 +15,7 @@ const creacionSchema = new mongoose.Schema({
     type: String,
   },
   numEmpleados: {
-    type: String,
+    type: Number,
   },
 });
 
