@@ -6,15 +6,15 @@ import { resolvers } from "./graphql/resolvers.js";
 import { ApolloServerPluginDrainHttpServer } from "apollo-server-core";
 import http from "http";
 import dotenv from "dotenv";
-import cors from "cors";
+//import cors from "cors";
 import { graphqlUploadExpress } from "graphql-upload";
 
 const app = express();
 dotenv.config();
 app.use(express.json());
-app.use(cors(
-  config.app.cors.server()
-));
+// app.use(cors(
+//   //config.app.cors.server()
+// ));
 
 const httpServer = http.createServer(app);
 
