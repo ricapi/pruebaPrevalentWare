@@ -14,6 +14,10 @@ const resolversCreacion = {
       console.log(archivos);
       return archivos;
     },
+    Empresa: async (parent, args) => {
+      const modEmpresa = await ModeloCreacion.findById({_id: args._id});
+      return modEmpresa;
+    }
   },
   Mutation: {
     crearEmpresa: async (parent, args) => {

@@ -10,18 +10,18 @@ const tiposCreacionEm = gql`
     encoding: String
   }
 
-
   type Creacion {
     _id: ID
     nombre: String
     razonSocial: String
     nit: String
     identificacion: String
-    numEmpleados: Int
+    numEmpleados: String
     
   }
   type Query {
     Creaciones: [Creacion]
+    Empresa(_id: String!): Creacion
     otherFields: File
   }
   type Mutation {
@@ -30,8 +30,10 @@ const tiposCreacionEm = gql`
       razonSocial: String
       nit: String
       identificacion: String
-      numEmpleados: Int
+      numEmpleados: String
     ): Creacion
+
+   
 
     singleUpload(file: Upload): File
 
@@ -41,7 +43,7 @@ const tiposCreacionEm = gql`
       razonSocial: String
       nit: String
       identificacion: String
-      numEmpleados: Int
+      numEmpleados: String
     ): Creacion
 
     eliminarEmpresa(_id: String): Creacion
