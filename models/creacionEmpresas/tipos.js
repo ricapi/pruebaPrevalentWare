@@ -21,7 +21,7 @@ const tiposCreacionEm = gql`
   }
   type Query {
     Creaciones: [Creacion]
-    Empresa(_id: String!): Creacion
+    Empresa(_id: String): Creacion
     otherFields: File
   }
   type Mutation {
