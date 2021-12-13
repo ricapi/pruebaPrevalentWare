@@ -12,7 +12,7 @@ import { graphqlUploadExpress } from "graphql-upload";
 const app = express();
 dotenv.config();
 app.use(express.json());
-app.use(cors());
+//app.use(cors());
 
 const httpServer = http.createServer(app);
 
