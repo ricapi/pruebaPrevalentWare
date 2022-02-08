@@ -1,6 +1,5 @@
 import { gql } from "apollo-server-express";
 
-
 const tiposCreacionEm = gql`
   scalar Upload
 
@@ -16,8 +15,18 @@ const tiposCreacionEm = gql`
     razonSocial: String
     nit: String
     identificacion: String
+    imagen: String
     numEmpleados: String
     
+  }
+
+  input CamposImagen{
+    nombre: String
+    razonSocial: String
+    nit: String
+    identificacion: String
+    numEmpleados: String
+    imagen: String
   }
   type Query {
     Creaciones: [Creacion]
@@ -31,6 +40,7 @@ const tiposCreacionEm = gql`
       nit: String
       identificacion: String
       numEmpleados: String
+      imagen: String
     ): Creacion
 
    
@@ -44,7 +54,12 @@ const tiposCreacionEm = gql`
       nit: String
       identificacion: String
       numEmpleados: String
+      imagen: String
     ): Creacion
+
+    
+
+    cargaImagen(_id: String, campos: CamposImagen): Creacion
 
     eliminarEmpresa(_id: String): Creacion
   }

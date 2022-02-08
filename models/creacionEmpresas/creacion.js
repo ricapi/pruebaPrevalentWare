@@ -14,6 +14,10 @@ const creacionSchema = new mongoose.Schema({
   identificacion: {
     type: String,
   },
+  imagen: {
+    type: String,
+    required: false,
+  },
   numEmpleados: {
     type: Number,
   },

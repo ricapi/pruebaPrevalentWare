@@ -15,9 +15,9 @@ const resolversCreacion = {
       return archivos;
     },
     Empresa: async (parent, args) => {
-      const modEmpresa = await ModeloCreacion.findById({_id: args._id});
+      const modEmpresa = await ModeloCreacion.findById({ _id: args._id });
       return modEmpresa;
-    }
+    },
   },
   Mutation: {
     crearEmpresa: async (parent, args) => {
@@ -27,6 +27,7 @@ const resolversCreacion = {
         nit: args.nit,
         identificacion: args.identificacion,
         numEmpleados: args.numEmpleados,
+        imagen: args.imagen,
       });
       return empresaNueva;
     },
@@ -39,11 +40,21 @@ const resolversCreacion = {
           nit: args.nit,
           identificacion: args.identificacion,
           numEmpleados: args.numEmpleados,
+          imagen: args.imagen,
         },
         { new: true }
       );
       console.log(empresaEditada);
       return empresaEditada;
+    },
+
+    cargaImagen: async (parent, args) => {
+      const imagenCargada = await ModeloCreacion.findOneAndUpdate(
+        args._id,
+        { ...args.campos },
+        { new: true }
+      );
+      return imagenCargada;
     },
     eliminarEmpresa: async (parent, args) => {
       if (Object.keys(args).includes("_id")) {
